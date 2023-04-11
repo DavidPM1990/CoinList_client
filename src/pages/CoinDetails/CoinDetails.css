@@ -1,0 +1,34 @@
+.cardDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.titleStyle {}
+
+.list-group-flush {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+
+}
+
+
+.organization {
+    display: flex;
+    flex-direction: row;
+}
+
+.priceStyle {
+    margin-left: 65%;
+    font-size: 180%;
+}
+
+.textStyle {
+    margin-top: 3%;
+}
+
+.buttonStyle {
+    margin-left: 50%;
+}
