@@ -6,7 +6,7 @@ class CoinAxios extends InitAxios {
     }
 
     getAllCoins() {
-        return this.axios.get(`/home`).then((res) => res.data)
+        return this.axios.get(`/coins`).then((res) => res.data)
     }
 
 

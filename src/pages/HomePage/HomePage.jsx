@@ -67,7 +67,7 @@ const AllCoins = () => {
                     {coins.map(coin =>
 
 
-                        <thead>
+                        <thead key={coin.id}>
                             <tr>
                                 <td><img style={{ width: '3vw' }} src={coin.image} alt='logoImg' /></td>
                                 <td>#{coin.market_cap_rank}</td>

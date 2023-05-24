@@ -6,7 +6,7 @@ class DetailsAxios extends InitAxios {
     }
 
     getOneCoin(id) {
-        return this.axios.get(`/details/${id}`).then((res) => res.data)
+        return this.axios.get(`/coins/details/${id}`).then((res) => res.data)
     }
 
     // getChart(id, days) {

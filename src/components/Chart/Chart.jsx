@@ -36,8 +36,6 @@ const OneChart = () => {
     const { id } = useParams();
     const { response } = useAxios(`coins/${id}/market_chart?vs_currency=eur&days=365`);
 
-    console.log('holaaaa segundo intentoooooooooooooooooo', response)
-
     if (!response) {
         return <div>Loading ...</div>
     }
