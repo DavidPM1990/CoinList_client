@@ -208,7 +208,7 @@ const AllCoins = () => {
                         </tbody>
                     </Table>
                 ) : (
-                    <div>No se encontraron resultados.</div>
+                    <div className='text-white ml-5'><h3>No Results.</h3></div>
                 )}
 
                 <Pagination coinsPerPage={coinsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalNumberProducts={totalNumberProducts} />

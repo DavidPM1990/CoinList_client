@@ -80,7 +80,7 @@ const Login = () => {
                                         <input
                                             type="submit"
                                             value="Log In"
-                                            className="btn bg-azulFlagX hover:bg-blue-500"
+                                            className="btn bg-blue-500"
                                         />
                                         {/* <Link className="btn bg-indigo-500 hover:bg-indigo-600 text-white ml-3 hover:cursor-pointer" to="/">Iniciar sesión</Link> */}
                                     </div>
