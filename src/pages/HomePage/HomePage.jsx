@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { TrendingDownIcon, TrendingUpIcon } from '../../icons/icons';
+import Pagination from '../../components/Pagination/Pagination';
 
 
 const AllCoins = () => {
@@ -13,6 +14,14 @@ const AllCoins = () => {
     const axiosCoins = new CoinAxios();
     const [coins, setCoins] = useState([]);
     const [coinsCopy, setCoinsCopy] = useState([]);
+
+    const totalNumberProducts = coins.length
+
+    const [coinsPerPage, setCoinsPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const lastIndex = currentPage * coinsPerPage
+    const firstIndex = lastIndex - coinsPerPage
 
     const getFullCoins = () => {
 
@@ -88,8 +97,10 @@ const AllCoins = () => {
                                 <td><a href={`/details/${coin.id}`}><Button variant="secondary" size="md" disabled>See Details</Button></a></td>
                             </tr>
                         </thead>
-                    )}
+                    ).slice(firstIndex, lastIndex)}
                 </Table>
+
+                <Pagination coinsPerPage={coinsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalNumberProducts={totalNumberProducts} />
 
             </>
 
