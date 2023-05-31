@@ -54,17 +54,16 @@ const Profile = () => {
             <div className="p-6 m-6 space-y-6 bg-white">
                 <h2 className="text-2xl text-slate-800 font-bold mb-5">My Account</h2>
                 {/* Picture */}
-                <section>
+                {/* <section>
                     <div className="flex items-center">
-                        {/* <div className="mr-4">
+                        <div className="mr-4">
                             <img className="w-20 h-20 rounded-full" src={Image} width="80" height="80" alt="User upload" />
-                        </div> */}
+                        </div>
                         <button className="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">Change</button>
                     </div>
-                </section>
+                </section> */}
                 {/* Business Profile */}
                 <section>
-                    <h2 className="text-xl leading-snug text-slate-800 font-bold mb-1">Profile</h2>
                     <form>
                         <div className="sm:flex sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-5">
                             <div className="sm:w-1/3">

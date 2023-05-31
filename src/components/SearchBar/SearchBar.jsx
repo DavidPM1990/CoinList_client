@@ -5,8 +5,13 @@ const SearchBar = ({ coinsCopy, setCoins }) => {
 
     const search = (e) => {
         let text = e.target.value
-        let results = coinsCopy.filter(e => e.name.toLowerCase().includes(text.toLowerCase()))
+        let results = coinsCopy.filter(e => {
+            const searchText = text.toLowerCase();
+            return e.name.toLowerCase().includes(searchText) || searchText.length < 3;
+        });
         setCoins(results)
+
+        console.log('soy los resultados de la busqueda de la search', results)
     }
 
 
