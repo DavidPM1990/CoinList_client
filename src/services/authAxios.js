@@ -1,4 +1,6 @@
-import InitAxios from "./initAxios";
+import InitAxios from "./initAxios"
+
+
 
 class UserAxios extends InitAxios {
     constructor() {
@@ -12,6 +14,7 @@ class UserAxios extends InitAxios {
     logIn(body) {
         return this.axios.post('/login', body).then((response) => response.data);
     }
+
 }
 
-export default UserAxios;
+export default UserAxios

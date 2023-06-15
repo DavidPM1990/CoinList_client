@@ -14,12 +14,27 @@ function Signup() {
     const [newUser, setNewUser] = useState({});
     const userInstance = new UserAxios();
 
+    const [error, setError] = useState("");
+
     const createNewUser = (eventHTML) => {
         eventHTML.preventDefault();
+
+        if (!newUser.email || !newUser.userName || !newUser.fullName || !newUser.phoneNumber || !newUser.password) {
+            setError("You must fill in all fields")
+            return;
+        }
+
         console.log(newUser)
         userInstance.signUp(newUser).then(() => {
             navigate('/')
         })
+            .catch(err => {
+                if (err.response && err.response.data && err.response.data.errorMessage) {
+                    setError(err.response.data.errorMessage);
+                } else {
+                    setError('Email or Password Invalid')
+                }
+            })
     }
 
     const updateNewUser = (eventHTML) => {
@@ -66,11 +81,14 @@ function Signup() {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <button className="btn bg-indigo-500 hover:bg-indigo-600 ml-3 whitespace-nowrap" to="/" type='submit'>Sign Up</button>
+                                    <button className="bg-blue-500 hover:bg-indigo-600 text-white mt-3 rounded-md hover:cursor-pointer border px-4 py-1" to="/" type='submit'>Sign Up</button>
                                 </div>
+
+                                {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
+
                             </form>
                             {/* Footer */}
-                            <div className="pt-5 mt-6 border-t border-slate-200">
+                            <div className="pt-2 mt-2 border-t border-slate-200">
                                 <div className="text-sm">
                                     Have an account? <Link className="font-medium text-indigo-500 hover:text-indigo-600" to="/login">LogIn</Link>
                                 </div>

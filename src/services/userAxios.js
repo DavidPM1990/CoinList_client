@@ -1,4 +1,5 @@
-import InitAxios from './initAxios';
+import InitAxios from "./initAxios"
+
 
 class ProfileAxios extends InitAxios {
     constructor() {
@@ -19,6 +20,26 @@ class ProfileAxios extends InitAxios {
         }
         return this.instance;
     }
+
+    // getUserWithFav(id, body) {
+    //     return this.axios
+    //         .get(`/favorite-coins/${id}`, body, {
+    //             headers: {
+    //                 authorization: `Bearer ${localStorage.getItem('tokenAuth')}`,
+    //             }
+    //         })
+    //         .then((data) => console.log(data))
+    // }
+
+    // updateFavCoins(id, body) {
+    //     return this.axios
+    //         .put(`/favorite-coins/${id}`, body, {
+    //             headers: {
+    //                 authorization: `Bearer ${localStorage.getItem('tokenAuth')}`,
+    //             }
+    //         })
+    //         .then((response) => console.log('soy la respuesta de updateFavCoins', response.data));
+    // }
 
 }
 

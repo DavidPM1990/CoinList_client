@@ -9,7 +9,7 @@ const IsPrivate = (props) => {
     if (isLoading) return <h1>Loading...</h1>;
 
     if (isLoggedIn) {
-        console.log('Estoy logeado??', isLoggedIn)
+        // console.log('Estoy logeado??', isLoggedIn)
         return props.children;
     } else {
         return <Navigate to={'/login'} />

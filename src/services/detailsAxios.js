@@ -1,4 +1,6 @@
-import InitAxios from "./initAxios";
+import InitAxios from "./initAxios"
+
+
 
 class DetailsAxios extends InitAxios {
     constructor() {

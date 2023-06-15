@@ -115,7 +115,7 @@
 
 
 import './HomePage.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import CoinAxios from '../../services/coinAxios';
 import Table from 'react-bootstrap/Table';
@@ -123,11 +123,21 @@ import Button from 'react-bootstrap/Button';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { TrendingDownIcon, TrendingUpIcon } from '../../icons/icons';
 import Pagination from '../../components/Pagination/Pagination';
+// import userAxios from '../../services/userAxios';
+import { AuthContext } from '../../context/auth.context';
+// import axios from 'axios';
+import Fav from '../../components/Fav/Fav';
 
 const AllCoins = () => {
     const axiosCoins = new CoinAxios();
     const [coins, setCoins] = useState([]);
     const [coinsCopy, setCoinsCopy] = useState([]);
+
+    // const [fav, setFav] = useState(false);
+
+    const { user } = useContext(AuthContext);
+
+
 
     const totalNumberProducts = coins.length;
 
@@ -151,6 +161,29 @@ const AllCoins = () => {
         getFullCoins();
     }, []);
 
+    // const favsAdd = (body) => {
+
+
+    //     const userId = user._id
+    //     console.log('soy el id del ususarioooooooooooooo', userId)
+
+
+    //     userAxios
+    //         .updateFavCoins(body)
+    //         .then((data) => {
+    //             console.log("added", data)
+    //         })
+    //         .catch((err) => console.log(err))
+    // }
+
+
+    const { favoriteCoins } = user
+    // const mapId = favoriteCoins?.map(e => e.id)
+
+
+    // console.log('soy el nombreID de la cryptomoneda', mapId)
+    console.log('soy  todas las favoriteCoins', favoriteCoins)
+
     if (!coins) {
         return (
             <Spinner animation='border' role='status'>
@@ -159,6 +192,7 @@ const AllCoins = () => {
         );
     } else {
         const searchResults = coins.slice(firstIndex, lastIndex);
+
 
         return (
             <>
@@ -202,7 +236,8 @@ const AllCoins = () => {
                                         {coin.price_change_percentage_24h.toFixed(2)}%
                                         {coin.price_change_percentage_24h < 0 ? <TrendingDownIcon /> : <TrendingUpIcon />}
                                     </td>
-                                    <td><a href={`/details/${coin.id}`}><Button variant="secondary" size="md" disabled>See Details</Button></a></td>
+                                    <td><a href={`/details/${coin.id}`}><Button variant="secondary" size="md">See Details</Button></a></td>
+                                    {/* <td><Button variant="secondary" size="md" onClick={() => favsAdd(coin)}>Add to Favorites</Button></td> */}
                                 </tr>
                             ))}
                         </tbody>
@@ -210,12 +245,14 @@ const AllCoins = () => {
                 ) : (
                     <div className='text-white ml-5'><h3>No Results.</h3></div>
                 )}
-
-                <Pagination coinsPerPage={coinsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalNumberProducts={totalNumberProducts} />
+                <div className='pb-2'>
+                    <Pagination coinsPerPage={coinsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalNumberProducts={totalNumberProducts} />
+                </div>
             </>
         );
     }
 };
+
 
 export default AllCoins;
 
